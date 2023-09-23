@@ -56,9 +56,9 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   const a =
     Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
     Math.cos(lat1Rad) *
-      Math.cos(lat2Rad) *
-      Math.sin(deltaLon / 2) *
-      Math.sin(deltaLon / 2);
+    Math.cos(lat2Rad) *
+    Math.sin(deltaLon / 2) *
+    Math.sin(deltaLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
   const distance = R * c;
@@ -216,6 +216,7 @@ async function run() {
         const dynamicField = `${airportCode}`;
 
         airport[dynamicField][flightIndex].airportName = updateData.airportName;
+        airport[dynamicField][flightIndex].airlineLogo = updateData.airlineLogo;
         airport[dynamicField][flightIndex].airlineName = updateData.airlineName;
         airport[dynamicField][flightIndex].amountPerKm = updateData.amountPerKm;
         airport[dynamicField][flightIndex].taxesAndFees =
@@ -257,8 +258,6 @@ async function run() {
           },
           { $set: airport }
         );
-
-        console.log(airport);
 
         return res.status(200).json(airport);
       } catch (error) {
@@ -952,10 +951,10 @@ async function run() {
             $set: {
               [path + ".$.insurancePolicy.claimedStatus"]: newStatus,
               [path +
-              `.$.insurancePolicy.claimedInsurance.${premiumType}.claimedPrice`]:
+                `.$.insurancePolicy.claimedInsurance.${premiumType}.claimedPrice`]:
                 claimedAmount,
               [path +
-              `.$.insurancePolicy.claimedInsurance.${premiumType}.isClaimed`]:
+                `.$.insurancePolicy.claimedInsurance.${premiumType}.isClaimed`]:
                 isPremiumStatus,
             },
           };

@@ -98,7 +98,7 @@ const UserInsurance = () => {
 
   return (
     <div>
-      <section className="bg-white p-4 shadow-md mt-5 flex md:flex-row flex-col  md:items-center md:mx-7 md:space-x-4">
+      <section className="bg-white p-4 shadow-md mt-5 flex md:flex-row flex-col overflow-x-scroll md:items-center md:mx-7 md:space-x-4">
         <div className="mb-2 md:mb-0">
           <h1 className="font-semibold ">All Insurance: </h1>
         </div>

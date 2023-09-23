@@ -215,8 +215,8 @@ const BookFlight = () => {
                   <div>
                     <img
                       className="h-16 w-16 rounded-full -ml-2"
-                      src={singleFlight?.airlineLogo}
-                      alt=""
+                      src={singleFlight?.airlineLogo ? singleFlight?.airlineLogo : "https://i.ibb.co/30FqcLm/airplane-sky-1308-31202-removebg-preview.png"}
+                      alt={singleFlight?.airlineName}
                     />
                     <div>
                       <p className="text-gray-400 text-xs md:text-sm mt-2 md:mt-1">

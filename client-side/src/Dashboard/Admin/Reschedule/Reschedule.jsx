@@ -122,7 +122,7 @@ const Reschedule = () => {
       {isActive === "cancel" && (
         <TableReschedule
           AllReschedule={Denied}
-          // openModal={openModal}
+          openModal={openModal}
           setFlightRef={setFlightRef}
           status="cancel status"
         />
@@ -131,7 +131,7 @@ const Reschedule = () => {
       {isActive === "confirm" && (
         <TableReschedule
           AllReschedule={Confirmed}
-          // openModal={openModal}
+          openModal={openModal}
           setFlightRef={setFlightRef}
           status="confirm status"
         />

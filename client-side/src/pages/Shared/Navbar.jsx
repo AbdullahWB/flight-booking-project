@@ -53,7 +53,7 @@ const Navbar = () => {
       });
   }, [axiosSecure]);
 
-  const currentUser = users.find((userData) => userData?.email === user?.email);
+  const currentUser = users?.find((userData) => userData?.email === user?.email);
 
   const isAdmin = currentUser?.role === "admin";
 
