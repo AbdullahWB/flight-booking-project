@@ -48,7 +48,7 @@ const BookingChart = () => {
         </button>
       </div>
 
-      {data ? (
+      {bookings?.length == 0 ? (
         <div className="text-3xl font-semibold flex -mt-6 justify-center items-center h-full">
           <p>Not Booking Yet.</p>
         </div>

@@ -45,7 +45,7 @@ const FlightDetails = () => {
     cabin: filterFlight[0]?.flightInfo?.cabin,
     code: filterFlight[0]?.details?.code,
     time: filterFlight[0]?.details?.time,
-    latitude: filterFlight[0]?.details?.longitude,
+    latitude: filterFlight[0]?.details?.latitude,
     longitude: filterFlight[0]?.details?.longitude,
     dateAmountPerKm: filterFlight[0]?.dateChangeRules[0]?.amountPerKm,
     cancelAmountPerKm: filterFlight[0]?.cancellationRules[0]?.amountPerKm,
@@ -56,11 +56,12 @@ const FlightDetails = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/update/${airportCode}/${id}/${_id}`,
+        `https://server-side-tawny-sigma.vercel.app/update/${airportCode}/${id}/${_id}`,
         updateData
       );
 
       successToast("Flight Data Updated Success");
+      // window.location.href = "http://localhost:5173/dashboard/flightStatus";
     } catch (error) {
       errorToast("Flight Data Fail to Update");
       console.error("Error updating flight:", error);
@@ -128,8 +129,8 @@ const FlightDetails = () => {
               <div className="flex md:justify-start items-center space-x-3 text-[12px]">
                 <div>
                   <img
-                    className="h-16 w-15  rounded-full"
-                    src="https://airlineimages.s3.ap-southeast-1.amazonaws.com/128/RJ.png"
+                    className="h-16 w-16 rounded-full"
+                    src={filterFlight[0]?.airlineLogo}
                     alt=""
                   />
                 </div>
